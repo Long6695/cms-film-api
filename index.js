@@ -1,9 +1,11 @@
-const { urlencoded } = require('express');
 const express = require('express')
-const dotenv = require('dotenv').config()
+const dotenv = require('dotenv')
 const mongoose = require('mongoose')
+const cors = require('cors')
 const PORT = process.env.PORT || 5000
 const app = express()
+dotenv.config()
+app.use(cors())
 const usersRoute = require('./routes/user')
 const authRoute = require('./routes/auth')
 const filmRoute = require('./routes/film')
