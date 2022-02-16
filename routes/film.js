@@ -5,7 +5,6 @@ const {check, validationResult} = require('express-validator');
 const Film = require('../models/Film');
 // middlewares
 const auth = require('../middlewares/auth');
-const { json } = require('express/lib/response');
 
 // @route GET /api/film
 // @desc GET film list

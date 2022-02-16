@@ -12,7 +12,7 @@ const filmRoute = require('./routes/film')
 // env
 const PORT = process.env.PORT || 5000
 
-mongoose.connect(process.env.DB_CONNECT,() => {
+mongoose.connect(process.env.DB_CONNECT, () => {
   console.log('connect to mongoose')
 })
 
