@@ -69,7 +69,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', [auth, check('title', 'Title is required').not().isEmpty(),
 check('description', 'Description is required').not().isEmpty(),
-check('banner', 'Banner is required').not().isEmpty()
+check('banner', 'Banner is required').not().isEmpty(),
+check('quote', 'Quote is required').not().isEmpty()
 ], async (req, res) => {
   const errors = validationResult(req)
   if(!errors.isEmpty()) {
@@ -81,7 +82,8 @@ check('banner', 'Banner is required').not().isEmpty()
   const film = new Film({
     title: req.body.title,
     banner: req.body.banner,
-    description: req.body.description
+    description: req.body.description,
+    quote: req.body.quote
   })
 
   try {

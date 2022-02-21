@@ -12,9 +12,16 @@ const filmRoute = require('./routes/film')
 // env
 const PORT = process.env.PORT || 5000
 
-mongoose.connect(process.env.DB_CONNECT, () => {
-  console.log('connect to mongoose')
+mongoose.connect(process.env.DB_CONNECT,{})
+.then(x => {
+  console.log(
+    `Connected to Mongo!${x}`
+  )
 })
+.catch(err => {
+  console.error("Error connecting to mongo", err)
+})
+
 
 app.get('/', (req, res) => {
   res.send('hello world')
@@ -25,4 +32,6 @@ app.use('/api/users', usersRoute)
 app.use('/api/auth', authRoute)
 app.use('/api/film', filmRoute)
 
-app.listen(PORT)
+app.listen(PORT, () => {
+  console.log(`Server is running at PORT ${PORT}`)
+})
