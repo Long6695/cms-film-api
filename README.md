@@ -79,6 +79,10 @@ PUT   /api/film/{id}
 
 # ADD NEW
 POST    /api/film
+header: {
+'x-auth-token': token
+}
+
 {
   "title": "Spider man",
   "quote": "Spider man",
